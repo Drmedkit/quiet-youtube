@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "ParentSettings": {
+      "title": "Parent-controlled YouTube settings",
+      "description": "Complete parent policy. Local editing is disabled. Only an explicit enabled=false pauses protection.",
+      "type": "object",
+      "properties": {
+        "enabled": { "type": "boolean" },
+        "channels": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string" },
+              "name": { "type": "string" },
+              "handle": { "type": "string" }
+            }
+          }
+        },
+        "homeFeed": { "type": "string", "enum": ["subscriptions", "home"] },
+        "hideShorts": { "type": "boolean" },
+        "hideComments": { "type": "boolean" },
+        "hideRecommendations": { "type": "boolean" },
+        "hideSearch": { "type": "boolean" },
+        "hideEndScreens": { "type": "boolean" },
+        "hideLiveChat": { "type": "boolean" },
+        "hideNotifications": { "type": "boolean" },
+        "disableAutoplay": { "type": "boolean" }
+      }
+    }
+  }
+}

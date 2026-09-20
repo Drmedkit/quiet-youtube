@@ -1,0 +1,105 @@
+/* The page stays covered until settings and channel checks complete. */
+html:not([data-qy-ready]) body {
+  visibility: hidden !important;
+}
+html[data-qy-state="checking"] body,
+html[data-qy-state="blocked"] body,
+html[data-qy-state="error"] body {
+  visibility: hidden !important;
+  overflow: hidden !important;
+}
+#quiet-youtube-overlay {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 2147483647 !important;
+  visibility: visible !important;
+  display: block !important;
+}
+#quiet-youtube-overlay[hidden] {
+  display: none !important;
+}
+html[data-qy-nativefilter]
+  :is(
+    ytd-rich-item-renderer,
+    ytd-video-renderer,
+    ytd-grid-video-renderer,
+    ytd-compact-video-renderer,
+    ytd-playlist-video-renderer,
+    ytd-playlist-panel-video-renderer,
+    yt-lockup-view-model,
+    ytd-reel-item-renderer,
+    ytm-video-with-context-renderer,
+    ytm-shorts-lockup-view-model,
+    ytm-shorts-lockup-view-model-v2
+  ):not([data-qy-card="allowed"]):not([data-qy-card="nested"]) {
+  visibility: hidden !important;
+}
+html[data-qy-nativefilter] [data-qy-card="blocked"] {
+  display: none !important;
+}
+html[data-qy-hideshorts]
+  :is(
+    ytd-reel-shelf-renderer,
+    ytd-rich-shelf-renderer[is-shorts],
+    ytd-reel-item-renderer,
+    yt-reel-item-view-model,
+    ytm-shorts-lockup-view-model,
+    ytm-shorts-lockup-view-model-v2,
+    ytd-guide-entry-renderer:has(a[href^="/shorts"]),
+    ytd-mini-guide-entry-renderer:has(a[href^="/shorts"]),
+    ytd-rich-item-renderer:has(a[href^="/shorts/"])
+  ) {
+  display: none !important;
+}
+html[data-qy-hidecomments]
+  :is(
+    ytd-comments,
+    #comments,
+    ytm-comment-section-renderer,
+    ytm-comments-entry-point-header-renderer
+  ) {
+  display: none !important;
+}
+html[data-qy-hiderecommendations]
+  :is(
+    ytd-watch-next-secondary-results-renderer,
+    ytm-watch-next-secondary-results-renderer,
+    #related,
+    #secondary-inner > yt-related-chip-cloud-renderer
+  ) {
+  display: none !important;
+}
+html[data-qy-hidesearch]
+  :is(
+    ytd-searchbox,
+    yt-searchbox,
+    ytm-search-box,
+    #masthead #search,
+    #masthead #search-button
+  ) {
+  display: none !important;
+}
+html[data-qy-hideendscreens]
+  :is(
+    .ytp-endscreen-content,
+    .ytp-ce-element,
+    .ytp-cards-teaser,
+    .ytp-pause-overlay,
+    .ytp-suggestion-set
+  ) {
+  display: none !important;
+}
+html[data-qy-hidelivechat] :is(ytd-live-chat-frame, #chat, #chat-container) {
+  display: none !important;
+}
+html[data-qy-hidenotifications] ytd-notification-topbar-button-renderer {
+  display: none !important;
+}
+html[data-qy-disableautoplay]
+  :is(
+    #video-preview,
+    ytd-video-preview,
+    .ytp-autonav-endscreen-upnext-container
+  ) {
+  display: none !important;
+}

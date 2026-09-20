@@ -1,0 +1,88 @@
+@import "@fontsource/geist/400.css";
+@import "@fontsource/geist/500.css";
+@import "@fontsource/geist/600.css";
+@import "tailwindcss";
+@theme {
+  --font-sans: "Geist", sans-serif;
+  --color-paper: #f5f4ef;
+  --color-ink: #293329;
+  --color-muted: #6c7268;
+  --color-line: #dedfd5;
+  --color-leaf: #426349;
+  --color-wash: #e8ecdf;
+}
+@layer base {
+  body {
+    @apply m-0 bg-paper text-ink font-sans text-sm antialiased;
+  }
+  button,
+  a,
+  input {
+    -webkit-tap-highlight-color: transparent;
+  }
+  button,
+  a {
+    @apply outline-offset-4;
+  }
+  button {
+    @apply cursor-pointer disabled:cursor-wait disabled:opacity-50;
+  }
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible {
+    outline: 2px solid #608061;
+  }
+  button:active {
+    transform: scale(0.98);
+  }
+  button {
+    transition:
+      transform 150ms,
+      opacity 150ms,
+      background-color 150ms;
+  }
+  a {
+    @apply no-underline;
+  }
+}
+@layer components {
+  .primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-leaf px-5 py-3 font-medium text-white hover:bg-[#35523b];
+  }
+  .secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-line px-4 py-2.5 font-medium hover:bg-wash;
+  }
+  .eyebrow {
+    @apply text-[11px] font-medium uppercase tracking-[.14em] text-muted;
+  }
+  .input {
+    @apply w-full rounded-lg border border-line bg-white/60 px-4 py-3 text-ink placeholder:text-muted;
+  }
+  .notice {
+    @apply rounded-lg border border-line bg-white/40 px-4 py-3 leading-relaxed text-muted;
+  }
+  .error {
+    @apply rounded-lg border border-[#b6a190] bg-[#eee6db] px-4 py-3 leading-relaxed text-[#674c37];
+  }
+}
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.reveal {
+  animation: reveal 240ms ease-out both;
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

@@ -1,0 +1,32 @@
+[Unit]
+Description=Quiet YouTube parent controls
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/lib/quiet-youtube/quiet-youtube serve
+Restart=on-failure
+RestartSec=3
+User=root
+Group=root
+RuntimeDirectory=quiet-youtube
+RuntimeDirectoryMode=0755
+StateDirectory=quiet-youtube
+StateDirectoryMode=0700
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+LockPersonality=true
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+ReadWritePaths=@POLICY_DIR@
+MemoryMax=192M
+TasksMax=32
+
+[Install]
+WantedBy=multi-user.target

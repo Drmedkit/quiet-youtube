@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "kids.quiet-youtube",
+  "name": "Quiet YouTube",
+  "version": "0.3.0",
+  "author": "Omarchy Kids",
+  "description": "Password-protected YouTube channel approvals, a local CLI, and parent controls.",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "omarchy/QuietYouTube.qml"
+  },
+  "barWidget": {
+    "displayName": "Quiet YouTube",
+    "description": "Open YouTube or unlock parent controls.",
+    "category": "Family",
+    "allowMultiple": false,
+    "defaultSection": "right",
+    "defaults": {},
+    "schema": []
+  }
+}

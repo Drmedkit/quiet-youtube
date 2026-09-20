@@ -1,0 +1,41 @@
+{
+  "name": "omarchy-youtube-extension",
+  "version": "0.3.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "vite build && node scripts/build.mjs",
+    "test": "node --test tests/core.test.mjs",
+    "test:browser": "playwright test",
+    "demo": "node scripts/demo.mjs",
+    "test:live": "node scripts/live.mjs",
+    "test:native": "python -m unittest discover -s tests -p '*_test.py' -v",
+    "test:policy": "node scripts/policy-browser.mjs",
+    "package:omarchy": "npm run build && python scripts/package-omarchy.py",
+    "release:prepare": "npm run build && python scripts/package-omarchy.py --sync-repository"
+  },
+  "dependencies": {
+    "@fontsource/geist": "^5.3.0",
+    "@phosphor-icons/react": "^2.1.10",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@tailwindcss/vite": "^4.3.3",
+    "esbuild": "^0.28.2",
+    "prettier": "^3.9.7",
+    "tailwindcss": "^4.3.3",
+    "vite": "^8.3.0"
+  },
+  "description": "Approved-channel YouTube filtering with an Omarchy parent menu and authenticated CLI.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Drmedkit/quiet-youtube.git"
+  },
+  "homepage": "https://github.com/Drmedkit/quiet-youtube",
+  "bugs": {
+    "url": "https://github.com/Drmedkit/quiet-youtube/issues"
+  }
+}
